@@ -177,7 +177,7 @@ body {
 /* Seção principal */
 #home.section {
     position: relative;
-    background-image: url('/img/direito.jpg');
+    background-image: url('img/direito.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
