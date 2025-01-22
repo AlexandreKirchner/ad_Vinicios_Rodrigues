@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad_Vinicios_Rodrigues</title>
+    <!-- Font Awesome para o ícone do menu -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Arquivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <nav class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#institutional">Institucional</a>
+            <a href="#services">Atuação</a>
+        </nav>
+        <!-- Ícone de menu sanduíche -->
+        <i class="fas fa-bars menu-btn" onclick="toggleMenu()"></i>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#home" class="active">Home</a>
+            <a href="#institutional">Institucional</a>
+            <a href="#services">Atuação</a>
+        </div>
+    </header>
+
+    <main>
+        <div id="home" class="section">
+            <div class="content-overlay">
+                <h2>Consultoria Jurídica Especializada</h2>
+                <p>Profissionais qualificados para resolver suas questões legais.</p>
+                <button>Fale Conosco</button>
+            </div>
+        </div>
+    
+        <div id="institutional" class="section">
+            <div class="content-overlay2">
+                <div class="text-content">
+                    <h2>Sobre Institucional</h2>
+                    <p>O que somos e como começamos.</p>
+                    <p>Esta seção fala sobre a história, missão e valores da nossa empresa, explicando como iniciamos e o impacto que buscamos alcançar.</p>
+                    
+                    <!-- Botão que leva ao Google Maps -->
+                    <a href="https://www.google.com/maps?q=ENDEREÇO_DO_SEU_ESCRITORIO" target="_blank">
+                        <button>Nosso local</button>
+                    </a>
+                </div>
+                
+                <!-- Div para mostrar a foto do escritório ao lado -->
+                <div class="office-photo">
+                    <img src="/img/img3.jpg" alt="Foto do escritório">
+                </div>
+            </div>
+        </div>
+        
+        
+        <div id="services" class="section hidden">
+            <h2>Atuação</h2> <!-- Título da seção -->
+            <div class="services-container">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <div class="icon">
+                        <img src="/img/pena.png" alt="Direito Penal">
+                    </div>
+                    <h3>Direito Penal</h3>
+                    <p>Defesa e orientação em casos relacionados a crimes e contravenções.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <div class="icon">
+                        <img src="/img/justica.png" alt="Direito Civil">
+                    </div>
+                    <h3>Direito Civil</h3>
+                    <p>Resolução de conflitos envolvendo bens, contratos e direitos das pessoas.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <div class="icon">
+                        <img src="/img/direito-empresarial.png" alt="Direito Empresarial">
+                    </div>
+                    <h3>Direito Empresarial</h3>
+                    <p>Consultoria e suporte legal para empresas e negócios.</p>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Logo -->
+            <div class="footer-logo">
+                <img src="/img/logo.png" alt="Logo Ad Vinicios Rodrigues">
+            </div>
+            <!-- Informações de contato -->
+            <div class="footer-contact">
+                <p>Endereço: Rua Exemplo, 123 - Centro, Jaraguá do Sul, SC</p>
+                <p>Telefone: (47) 99999-9999</p>
+                <p>Email: contato@adviniciosrodrigues.com</p>
+            </div>
+            <!-- Redes sociais -->
+            <div class="footer-social">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="/img/facebook.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="/img/logotipo-do-instagram.png" alt="Instagram">
+                </a>
+                <a href="https://wa.me/5547999999999" target="_blank">
+                    <img src="/img/whatsapp.png" alt="WhatsApp">
+                </a>
+                <a href="https://www.linkedin.com" target="_blank">
+                    <img src="/img/linkedin.png" alt="LinkedIn">
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; AKsolution. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+
+    <script>
+        // Alternar menu mobile
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Alterar o link ativo
+        const links = document.querySelectorAll('nav a, .mobile-menu a');
+        links.forEach(link => {
+            link.addEventListener('click', function () {
+                // Remove a classe 'active' de todos os links
+                links.forEach(link => link.classList.remove('active'));
+                // Adiciona a classe 'active' ao link clicado
+                this.classList.add('active');
+            });
+        });
+    </script>
+    <script>
+        // Seleciona a div com a classe "content-overlay"
+        const contentOverlay = document.querySelector('.content-overlay');
+
+        // Inicialmente, a classe "hidden" é aplicada
+        contentOverlay.classList.add('hidden');
+
+        // Função que será chamada quando a seção entrar ou sair da área visível
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Se a div estiver visível, adiciona a classe "visible", senão, adiciona a classe "hidden-transition"
+                if (entry.isIntersecting) {
+                    contentOverlay.classList.add('visible');
+                    contentOverlay.classList.remove('hidden', 'hidden-transition');
+                } else {
+                    contentOverlay.classList.add('hidden-transition');
+                    contentOverlay.classList.remove('visible');
+                }
+            });
+        }, {
+            threshold: 0.01 // Define que 50% da div precisa estar visível para disparar o efeito
+        });
+
+        // Observa a div
+        observer.observe(contentOverlay);
+
+    </script>
+
+    <script>
+        // Seleciona a seção "Institucional"
+        // Seleciona a seção "Institucional"
+        const institutionalSection = document.querySelector('#institutional');
+
+        // Inicialmente, a classe "hidden" é aplicada
+        institutionalSection.classList.add('hidden');
+
+        // Função que será chamada quando a seção entrar ou sair da área visível
+        const observerInstitutional = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Se a div estiver visível, adiciona a classe "visible", senão, mantém a classe "hidden"
+                if (entry.isIntersecting) {
+                    institutionalSection.classList.add('visible');
+                    institutionalSection.classList.remove('hidden');
+                } else {
+                    institutionalSection.classList.remove('visible');
+                    institutionalSection.classList.add('hidden');
+                }
+            });
+        }, {
+            threshold: 0.001 // Define que 50% da div precisa estar visível para disparar o efeito
+        });
+
+        // Observa a seção "Institucional"
+        observerInstitutional.observe(institutionalSection);
+
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const servicesSection = document.querySelector('#services');
+
+            // Inicialmente, a classe "hidden" é aplicada
+            servicesSection.classList.add('hidden');
+
+            // Função para observar a visibilidade da seção
+            const observerServices = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        servicesSection.classList.add('visible');
+                        servicesSection.classList.remove('hidden');
+                    } else {
+                        servicesSection.classList.remove('visible');
+                        servicesSection.classList.add('hidden');
+                    }
+                });
+            }, {
+                threshold: 0.03 // Define que 3% da seção precisa estar visível
+            });
+
+            // Observa a seção "Serviços"
+            observerServices.observe(servicesSection);
+        });
+
+    </script>
+    <script>
+        // Função para alternar a exibição do menu mobile
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('show'); // Adiciona ou remove a classe 'show' para mostrar ou esconder o menu
+        }
+
+    </script>
+</body>
+</html>
