@@ -1,242 +1,243 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ad_Vinicios_Rodrigues</title>
-    <!-- Font Awesome para o ícone do menu -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts: Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Arquivo CSS externo -->
-    <link rel="stylesheet" href="styles.css">
+    <title>Vinicios_Rodrigues</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1c1c1c;
+            color: #ccc;
+            overflow-x: hidden;
+        }
+        html { scroll-behavior: smooth; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #000;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        header img { height: 50px; }
+
+        nav {
+            margin-right: 50px;
+        }
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+            padding: 5px 10px;
+            transition: 0.3s;
+            position: relative;
+        }
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -5px;
+            height: 3px;
+            background: gold;
+            transform: scaleX(0);
+            transition: 0.3s;
+        }
+        nav a:hover::after, nav a.active::after { transform: scaleX(1); }
+        nav a:hover, nav a.active {
+            border: 2px solid gold;
+            border-radius: 5px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 32px;
+            cursor: pointer;
+            margin-right: 40px;
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            background: #000;
+            width: 220px;
+            text-align: center;
+        }
+        .mobile-menu a {
+            display: block;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .mobile-menu a:hover { background: #444; }
+
+        .container { width: 100%; }
+
+        section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+
+        .content {
+            display: flex;
+            width: 80%;
+            max-width: 1200px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .text, .image { width: 50%; padding: 20px; }
+        .image img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        h2 { font-size: 2.5em; margin-bottom: 10px; }
+        p { font-size: 1.3em; }
+
+        #sobre { background: #222; }
+        #atuacao {
+            background: #333;
+            text-align: center;
+            padding: 50px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #contato { background: #444; }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 80%;
+        }
+        .card {
+            background: #222;
+            padding: 30px;
+            border-radius: 20px; /* Bordas mais arredondadas */
+            text-align: center;
+            width: 300px;
+            height: 300px; /* Altura maior */
+            transition: 0.3s;
+            border: 3px solid transparent; /* Borda transparente padrão */
+        }
+        .card:hover {
+            transform: scale(1.05);
+            border-color: gold; /* Borda dourada ao passar o mouse */
+        }
+        .card i {
+            font-size: 60px;
+            color: gold;
+            margin-bottom: 15px;
+        }
+
+
+        @media (max-width: 768px) {
+            header { flex-direction: row; }
+            nav { display: none; }
+            .menu-toggle { display: block; }
+            .mobile-menu.show { display: block; }
+            .content { flex-direction: column; text-align: center; }
+            .text, .image { width: 100%; text-align: center; }
+            .cards { flex-direction: column; align-items: center; width: 100%; }
+            .card { width: 90%; }
+        }
+
+    </style>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="img/logo.png" alt="Logo">
-        </div>
-        <nav class="nav-links">
-            <a href="#home" class="active">Home</a>
-            <a href="#institutional">Institucional</a>
-            <a href="#services">Atuação</a>
+        <img src="logo.png" alt="Logo Escritório de Advocacia">
+        <nav>
+            <a href="#sobre" class="active">Institucional</a>
+            <a href="#atuacao">Atuação</a>
+            <a href="#contato">Contato</a>
         </nav>
-        <!-- Ícone de menu sanduíche -->
-        <i class="fas fa-bars menu-btn" onclick="toggleMenu()"></i>
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#home" class="active">Home</a>
-            <a href="#institutional">Institucional</a>
-            <a href="#services">Atuação</a>
+        <button class="menu-toggle">☰</button>
+        <div class="mobile-menu">
+            <a href="#sobre" class="active">Institucional</a>
+            <a href="#atuacao">Atuação</a>
+            <a href="#contato">Contato</a>
         </div>
     </header>
-
-    <main>
-        <div id="home" class="section">
-            <div class="content-overlay">
-                <h2>Consultoria Jurídica Especializada</h2>
-                <p>Profissionais qualificados para resolver suas questões legais.</p>
-                <button>Fale Conosco</button>
-            </div>
-        </div>
-    
-        <div id="institutional" class="section">
-            <div class="content-overlay2">
-                <div class="text-content">
-                    <h2>Institucional</h2>
-                    <p>O que somos e como começamos.</p>
+    <div class="container">
+        <section id="sobre">
+            <div class="content">
+                <div class="text">
+                    <h2>O que somos e como começamos.</h2>
                     <p>Esta seção fala sobre a história, missão e valores da nossa empresa, explicando como iniciamos e o impacto que buscamos alcançar.</p>
-                    
-                    <!-- Botão que leva ao Google Maps -->
-                    <a href="https://www.google.com/maps?q=ENDEREÇO_DO_SEU_ESCRITORIO" target="_blank">
-                        <button>Nosso local</button>
-                    </a>
                 </div>
-                
-                <!-- Div para mostrar a foto do escritório ao lado -->
-                <div class="office-photo">
-                    <img src="img/img3.jpg" alt="Foto do escritório">
+                <div class="image">
+                    <img src="sobre.jpg" alt="Imagem Sobre Nós">
                 </div>
             </div>
-        </div>
-        
-        
-        <div id="services" class="section hidden">
-            <h2>Atuação</h2> <!-- Título da seção -->
-            <div class="services-container">
-                <!-- Card 1 -->
-                <div class="service-card">
-                    <div class="icon">
-                        <img src="img/pena.png" alt="Direito Penal">
-                    </div>
+        </section>
+        <section id="atuacao">
+            <h2>Área de Atuação</h2>
+            <div class="cards">
+                <div class="card">
+                    <i class="fas fa-balance-scale"></i>
                     <h3>Direito Penal</h3>
-                    <p>Defesa e orientação em casos relacionados a crimes e contravenções.</p>
+                    <p>Defesa e representação em processos criminais.</p>
                 </div>
-                <!-- Card 2 -->
-                <div class="service-card">
-                    <div class="icon">
-                        <img src="img/justica.png" alt="Direito Civil">
-                    </div>
+                <div class="card">
+                    <i class="fas fa-gavel"></i>
                     <h3>Direito Civil</h3>
-                    <p>Resolução de conflitos envolvendo bens, contratos e direitos das pessoas.</p>
+                    <p>Resolução de conflitos e contratos civis.</p>
                 </div>
-                <!-- Card 3 -->
-                <div class="service-card">
-                    <div class="icon">
-                        <img src="img/direito-empresarial.png" alt="Direito Empresarial">
-                    </div>
+                <div class="card">
+                    <i class="fas fa-building"></i>
                     <h3>Direito Empresarial</h3>
-                    <p>Consultoria e suporte legal para empresas e negócios.</p>
+                    <p>Assessoria jurídica para empresas.</p>
                 </div>
             </div>
-        </div>
-        
-        
-        
-        
-    </main>
-
-    <footer>
-        <div class="footer-container">
-            <!-- Logo -->
-            <div class="footer-logo">
-                <img src="img/logo.png" alt="Logo Ad Vinicios Rodrigues">
-            </div>
-            <!-- Informações de contato -->
-            <div class="footer-contact">
-                <p>Endereço: Rua Exemplo, 123 - Centro, Jaraguá do Sul, SC</p>
-                <p>Telefone: (47) 99999-9999</p>
-                <p>Email: contato@adviniciosrodrigues.com</p>
-            </div>
-            <!-- Redes sociais -->
-            <div class="footer-social">
-                <a href="https://www.facebook.com" target="_blank">
-                    <img src="img/facebook.png" alt="Facebook">
-                </a>
-                <a href="https://www.instagram.com" target="_blank">
-                    <img src="img/logotipo-do-instagram.png" alt="Instagram">
-                </a>
-                <a href="https://wa.me/5547999999999" target="_blank">
-                    <img src="img/whatsapp.png" alt="WhatsApp">
-                </a>
-                <a href="https://www.linkedin.com" target="_blank">
-                    <img src="img/linkedin.png" alt="LinkedIn">
-                </a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; AKsolution. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-    
-
+        </section>
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Email: contato@advocacia.com | Telefone: (11) 99999-9999</p>
+        </section>
+    </div>
     <script>
-        // Alternar menu mobile
-        function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
-
-        // Alterar o link ativo
-        const links = document.querySelectorAll('nav a, .mobile-menu a');
-        links.forEach(link => {
-            link.addEventListener('click', function () {
-                // Remove a classe 'active' de todos os links
-                links.forEach(link => link.classList.remove('active'));
-                // Adiciona a classe 'active' ao link clicado
+        document.querySelectorAll('nav a, .mobile-menu a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('nav a, .mobile-menu a').forEach(a => a.classList.remove('active'));
                 this.classList.add('active');
-            });
-        });
-    </script>
-    <script>
-        // Seleciona a div com a classe "content-overlay"
-        const contentOverlay = document.querySelector('.content-overlay');
-
-        // Inicialmente, a classe "hidden" é aplicada
-        contentOverlay.classList.add('hidden');
-
-        // Função que será chamada quando a seção entrar ou sair da área visível
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                // Se a div estiver visível, adiciona a classe "visible", senão, adiciona a classe "hidden-transition"
-                if (entry.isIntersecting) {
-                    contentOverlay.classList.add('visible');
-                    contentOverlay.classList.remove('hidden', 'hidden-transition');
-                } else {
-                    contentOverlay.classList.add('hidden-transition');
-                    contentOverlay.classList.remove('visible');
-                }
-            });
-        }, {
-            threshold: 0.01 // Define que 50% da div precisa estar visível para disparar o efeito
-        });
-
-        // Observa a div
-        observer.observe(contentOverlay);
-
-    </script>
-
-    <script>
-        // Seleciona a seção "Institucional"
-        // Seleciona a seção "Institucional"
-        const institutionalSection = document.querySelector('#institutional');
-
-        // Inicialmente, a classe "hidden" é aplicada
-        institutionalSection.classList.add('hidden');
-
-        // Função que será chamada quando a seção entrar ou sair da área visível
-        const observerInstitutional = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                // Se a div estiver visível, adiciona a classe "visible", senão, mantém a classe "hidden"
-                if (entry.isIntersecting) {
-                    institutionalSection.classList.add('visible');
-                    institutionalSection.classList.remove('hidden');
-                } else {
-                    institutionalSection.classList.remove('visible');
-                    institutionalSection.classList.add('hidden');
-                }
-            });
-        }, {
-            threshold: 0.001 // Define que 50% da div precisa estar visível para disparar o efeito
-        });
-
-        // Observa a seção "Institucional"
-        observerInstitutional.observe(institutionalSection);
-
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const servicesSection = document.querySelector('#services');
-
-            // Inicialmente, a classe "hidden" é aplicada
-            servicesSection.classList.add('hidden');
-
-            // Função para observar a visibilidade da seção
-            const observerServices = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        servicesSection.classList.add('visible');
-                        servicesSection.classList.remove('hidden');
-                    } else {
-                        servicesSection.classList.remove('visible');
-                        servicesSection.classList.add('hidden');
-                    }
+                const target = document.querySelector(this.getAttribute('href'));
+                window.scrollTo({
+                    top: target.offsetTop - 50,
+                    behavior: 'smooth'
                 });
-            }, {
-                threshold: 0.03 // Define que 3% da seção precisa estar visível
             });
-
-            // Observa a seção "Serviços"
-            observerServices.observe(servicesSection);
         });
-
-    </script>
-    <script>
-        // Função para alternar a exibição do menu mobile
-        function toggleMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('show'); // Adiciona ou remove a classe 'show' para mostrar ou esconder o menu
-        }
-
+        
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+        });
     </script>
 </body>
 </html>
